@@ -5,11 +5,17 @@ import org.launcher.command.Launcher;
 
 public class Avaj {
     public static void main(String[] args) {
+
+        if (args.length != 1) {
+            System.out.println("Usage: java -jar avaj_launcher.jar [scenario file]");
+            System.exit(1);
+        }
+
         // get the first argument passed to the program
-        String scenarioFile = args[0];
+        var scenarioFile = args[0];
 
         // create a new simulation
-        FileValidation fileValidation = new FileValidation(scenarioFile);
+        var fileValidation = new FileValidation(scenarioFile);
 
         // open the file
         fileValidation.openFile();
