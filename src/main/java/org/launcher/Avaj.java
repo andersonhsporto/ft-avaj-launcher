@@ -1,6 +1,7 @@
-package org.example;
+package org.launcher;
 
-import org.example.command.FileValidation;
+import org.launcher.command.FileValidation;
+import org.launcher.command.Launcher;
 
 public class Avaj {
     public static void main(String[] args) {
@@ -16,6 +17,10 @@ public class Avaj {
         // validate the file
         fileValidation.validateFile();
 
-        System.out.println(fileValidation.getObservers());
+        var observersList = fileValidation.getObservers();
+        var numberOfSimulations = fileValidation.getNumberOfSimulations();
+
+        Launcher launcher = new Launcher(observersList, numberOfSimulations);
+        launcher.run();
     }
 }

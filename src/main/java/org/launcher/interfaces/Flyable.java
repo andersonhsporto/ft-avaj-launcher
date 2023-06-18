@@ -1,7 +1,7 @@
-package org.example.interfaces;
+package org.launcher.interfaces;
 
-import org.example.tower.WeatherTower;
-import org.example.types.Coordinates;
+import org.launcher.tower.WeatherTower;
+import org.launcher.types.Coordinates;
 
 public interface Flyable {
     public void updateConditions();

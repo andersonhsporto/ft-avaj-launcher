@@ -1,10 +1,10 @@
-package org.example.command;
+package org.launcher.command;
 
-import org.example.exceptions.InvalidFileException;
-import org.example.exceptions.InvalidPropertiesException;
-import org.example.interfaces.Flyable;
-import org.example.singleton.AircraftFactory;
-import org.example.utils.Coordinates;
+import org.launcher.exceptions.InvalidFileException;
+import org.launcher.exceptions.InvalidPropertiesException;
+import org.launcher.interfaces.Flyable;
+import org.launcher.singleton.AircraftFactory;
+import org.launcher.types.Coordinates;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -92,28 +92,54 @@ public class FileValidation {
 
     public List<Flyable> getObservers() {
         try {
-            // skip the first line
             file.readLine();
 
             String line = file.readLine();
             List<Flyable> observers = new ArrayList<>();
 
             while (line != null) {
-                String aircraftType = getAircraftType(line);
-                String aircraftName = getAircraftName(line);
-                Coordinates aircraftCoordinates = getAircraftCoordinates(line);
-                Flyable aircraft = AircraftFactory.newAircraft(aircraftType, aircraftName, aircraftCoordinates.getLongitude(), aircraftCoordinates.getLatitude(), aircraftCoordinates.getHeight());
+                Flyable aircraft = makeFlyable(line);
 
                 observers.add(aircraft);
-
                 line = file.readLine();
             }
+
+            // return file to the beginning
+            file.close();
+            openFile();
+
+
             return observers;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.exit(1);
         }
         return null;
+    }
+
+    public int getNumberOfSimulations() {
+        try {
+            String firstLine = file.readLine();
+
+            return Integer.parseInt(firstLine);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        return 0;
+    }
+
+    private Flyable makeFlyable(String line) {
+        String aircraftType = getAircraftType(line);
+        String aircraftName = getAircraftName(line);
+        Coordinates aircraftCoordinates = getAircraftCoordinates(line);
+
+        return AircraftFactory.newAircraft(
+                aircraftType, aircraftName,
+                aircraftCoordinates.getLongitude(),
+                aircraftCoordinates.getLatitude(),
+                aircraftCoordinates.getHeight()
+        );
     }
 
     private String getAircraftType(String line) {

@@ -1,8 +1,8 @@
-package org.example.tower;
+package org.launcher.tower;
 
-import org.example.interfaces.Flyable;
-import org.example.singleton.WeatherProvider;
-import org.example.utils.Coordinates;
+import org.launcher.interfaces.Flyable;
+import org.launcher.singleton.WeatherProvider;
+import org.launcher.types.Coordinates;
 
 import java.util.List;
 

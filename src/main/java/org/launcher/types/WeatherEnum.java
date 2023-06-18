@@ -1,4 +1,4 @@
-package org.example.types;
+package org.launcher.types;
 
 public enum WeatherEnum {
     RAIN(),

@@ -1,10 +1,10 @@
-package org.example.singleton;
+package org.launcher.singleton;
 
-import org.example.aircraft.Baloon;
-import org.example.aircraft.Helicopter;
-import org.example.aircraft.JetPlane;
-import org.example.interfaces.Flyable;
-import org.example.utils.Coordinates;
+import org.launcher.aircraft.Baloon;
+import org.launcher.aircraft.Helicopter;
+import org.launcher.aircraft.JetPlane;
+import org.launcher.interfaces.Flyable;
+import org.launcher.types.Coordinates;
 
 public class AircraftFactory {
     public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
