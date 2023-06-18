@@ -27,6 +27,11 @@ public class Avaj {
         var numberOfSimulations = fileValidation.getNumberOfSimulations();
 
         Launcher launcher = new Launcher(observersList, numberOfSimulations);
+
+        System.out.println("Simulation is starting.");
+
         launcher.run();
+
+        System.out.println("Simulation is over.");
     }
 }
