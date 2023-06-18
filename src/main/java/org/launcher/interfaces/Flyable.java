@@ -4,13 +4,13 @@ import org.launcher.tower.WeatherTower;
 import org.launcher.types.Coordinates;
 
 public interface Flyable {
-    public void updateConditions();
+    void updateConditions();
 
-    public void registerTower(WeatherTower weatherTower);
+    void registerTower(WeatherTower weatherTower);
 
-    public String getFlyableName();
+    String getFlyableName();
 
-    public Coordinates getFlyableCoordinates();
+    Coordinates getFlyableCoordinates();
 
-    public String getFlyableLog();
+    String getFlyableLog();
 }

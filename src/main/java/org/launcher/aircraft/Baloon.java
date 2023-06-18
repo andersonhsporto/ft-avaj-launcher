@@ -45,14 +45,13 @@ public class Baloon extends Aircraft implements Flyable {
 
     @Override
     public String getFlyableName() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Baloon#");
-        sb.append(this.getName());
-        sb.append("(");
-        sb.append(this.getId());
-        sb.append(")");
+        String sb = "Baloon#" +
+                this.getName() +
+                "(" +
+                this.getId() +
+                ")";
 
-        return sb.toString();
+        return sb;
     }
 
     @Override

@@ -3,9 +3,9 @@ package org.launcher.aircraft;
 import org.launcher.types.Coordinates;
 
 public class Aircraft {
-    private Long id;
-    private String name;
-    private Coordinates coordinates;
+    private final Long id;
+    private final String name;
+    private final Coordinates coordinates;
 
     private String message;
 

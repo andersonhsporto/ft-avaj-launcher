@@ -4,6 +4,7 @@ import org.launcher.interfaces.Flyable;
 import org.launcher.singleton.WeatherProvider;
 import org.launcher.tower.WeatherTower;
 import org.launcher.types.Coordinates;
+
 public class JetPlane extends Aircraft implements Flyable {
 
     public JetPlane(Long id, String name, Coordinates coordinates) {
@@ -40,14 +41,13 @@ public class JetPlane extends Aircraft implements Flyable {
 
     @Override
     public String getFlyableName() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("JetPlane#");
-        sb.append(this.getName());
-        sb.append("(");
-        sb.append(this.getId());
-        sb.append(")");
+        String sb = "JetPlane#" +
+                this.getName() +
+                "(" +
+                this.getId() +
+                ")";
 
-        return sb.toString();
+        return sb;
     }
 
     @Override

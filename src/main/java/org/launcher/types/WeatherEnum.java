@@ -10,7 +10,7 @@ public enum WeatherEnum {
         long timestamp = System.currentTimeMillis();
 
         return WeatherEnum.values()[
-            (int) ((timestamp + coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight()) % 4)
-        ].toString();
+                (int) ((timestamp + coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight()) % 4)
+                ].toString();
     }
 }

@@ -41,14 +41,13 @@ public class Helicopter extends Aircraft implements Flyable {
 
     @Override
     public String getFlyableName() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Helicopter#");
-        sb.append(this.getName());
-        sb.append("(");
-        sb.append(this.getId());
-        sb.append(")");
+        String sb = "Helicopter#" +
+                this.getName() +
+                "(" +
+                this.getId() +
+                ")";
 
-        return sb.toString();
+        return sb;
     }
 
     @Override
