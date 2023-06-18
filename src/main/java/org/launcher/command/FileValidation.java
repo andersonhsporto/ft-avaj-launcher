@@ -170,20 +170,25 @@ public class FileValidation {
             throw new InvalidPropertiesException("Invalid number of properties: " + aircraftProperties.length + " on line " + lineNumber);
         }
 
-        if (isValidCoordinates(aircraftProperties[2])) {
+        if (isInvalidCoordinates(aircraftProperties[2])) {
             throw new InvalidPropertiesException("Invalid coordinates: " + aircraftProperties[2] + " on line " + lineNumber);
         }
 
-        if (isValidCoordinates(aircraftProperties[3])) {
+        if (isInvalidCoordinates(aircraftProperties[3])) {
             throw new InvalidPropertiesException("Invalid coordinates: " + aircraftProperties[3] + " on line " + lineNumber);
         }
 
-        if (isValidCoordinates(aircraftProperties[4])) {
+        if (isInvalidCoordinates(aircraftProperties[4])) {
             throw new InvalidPropertiesException("Invalid coordinates: " + aircraftProperties[4] + " on line " + lineNumber);
         }
     }
 
-    private boolean isValidCoordinates(String aircraftProperty) {
+    private boolean isInvalidCoordinates(String aircraftProperty) {
+        try {
+            Integer.parseInt(aircraftProperty);
+        } catch (Exception e) {
+            return true;
+        }
         return !aircraftProperty.matches("^[0-9]+$");
     }
 
@@ -234,7 +239,6 @@ public class FileValidation {
 
     private void isFirstLineValid(String firstLine) throws Exception {
         if (!firstLine.matches("^[0-9]+$")) {
-            System.out.println("First line is not a number: " + firstLine);
             throw new InvalidPropertiesException("First line is not a number: " + firstLine);
         }
         if (Integer.parseInt(firstLine) < 0) {
