@@ -14,6 +14,8 @@ public class Tower {
     private final File file;
 
     public Tower(List<Flyable> observers) {
+        new File("simulation.txt").delete();
+
         this.observers = new CopyOnWriteArrayList<>(observers);
         this.file = new File("simulation.txt");
     }
@@ -27,7 +29,6 @@ public class Tower {
         String message = "Tower says: " + flyable.getFlyableName() + " registered to weather tower.\n";
 
         writeToFile(message);
-        System.out.print(message);
     }
 
     public void unregister(Flyable flyable) {
