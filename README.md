@@ -55,9 +55,6 @@ The main objectives of the Avaj Launcher project are as follows:
 ### Mandatory Part
 
 The mandatory part of the project includes the following components:
-Program Behaviour
-
-The Avaj Launcher program should exhibit the following behavior:
 
 - Read a scenario file containing instructions for the simulation.
 - Generate weather conditions randomly.
@@ -71,7 +68,8 @@ The scenario file is a text file that contains instructions for the simulation. 
 #### Weather Generation
 
 This program generate weather conditions randomly using the timestamp of the sistem. The weather can be one of the following: SUN, RAIN, FOG, or SNOW.
-Aircrafts
+
+#### Aircrafts
 
 This program simulate different types of aircraft, each with its own behavior and characteristics. The aircraft types include Helicopter, JetPlane, and Balloon.
 
